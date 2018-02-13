@@ -6,6 +6,7 @@ import {
   CELL_MARK_WORM_EXIT,
   GRID_INIT,
   PATH_BUILD,
+  PATH_CLEAR,
 } from 'utils/constants/redux';
 
 import { copy2dArray } from 'utils/helper';
@@ -33,6 +34,19 @@ const cells = (state = [], action) => {
           path: true,
         });
       });
+      return newCells;
+    }
+    case PATH_CLEAR: {
+      const newCells = copy2dArray(state);
+      const { path } = action;
+      if (path) {
+        path.forEach((el) => {
+          const cell = newCells[el.y][el.x];
+          newCells[el.y][el.x] = Object.assign({}, cell, {
+            path: false,
+          });
+        });
+      }
       return newCells;
     }
     default:

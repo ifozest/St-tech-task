@@ -1,5 +1,9 @@
 import { types } from './types';
 
+/**
+ * Contains definitions for each element type
+ */
+
 export const simple = {
   type: types.simple,
   label: 'Default',

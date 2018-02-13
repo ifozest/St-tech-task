@@ -1,28 +1,37 @@
 import { connect } from 'react-redux';
 
 import ControlPanel from 'components/ControlPanel';
-import { initGrid, buildPath } from 'actions/grid';
+import { initGrid, buildPath, clearPath } from 'actions/grid';
 
 import { findPath } from 'services/algorithms/aStar';
 
-const mapStateToProps = ({
-  startElement, targetElement, cells, wormEntrances, wormExits,
-}) => ({
-  startElement,
-  targetElement,
-  wormEntrances,
-  wormExits,
-  cells,
+const mapStateToProps = ({ start, target }) => ({
+  start,
+  target,
 });
+
+
+const findNewPath = () => (dispatch, getState) => {
+  const {
+    start,
+    target,
+    cells,
+    wormEntrances,
+    wormExits,
+    path,
+  } = getState();
+  dispatch(clearPath(path));
+  const newPath = findPath(start, target, cells, wormEntrances, wormExits);
+  dispatch(buildPath(newPath));
+};
 
 
 const mapDispatchToProps = dispatch => ({
   clearGrid: () => {
     dispatch(initGrid());
   },
-  findPath: (start, end, grid, wormEntrances, wormExits) => {
-    const path = findPath(start, end, grid, wormEntrances, wormExits);
-    dispatch(buildPath(path));
+  findPath: () => {
+    dispatch(findNewPath());
   },
 });
 

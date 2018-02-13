@@ -23,19 +23,19 @@ const propTypes = {
     type: PropTypes.string.isRequired,
     path: PropTypes.bool,
   }).isRequired,
-  startElement: PropTypes.shape({
+  start: PropTypes.shape({
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,
   }),
-  targetElement: PropTypes.shape({
+  target: PropTypes.shape({
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,
   }),
 };
 
 const defaultProps = {
-  startElement: null,
-  targetElement: null,
+  start: null,
+  target: null,
 };
 
 class Cell extends React.Component {
@@ -46,10 +46,10 @@ class Cell extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const { cell } = this.props;
-    const { startElement, targetElement } = nextProps;
+    const { start, target } = nextProps;
 
-    if ((startElement && cell.type === types.start && !isSamePosition(cell, startElement)) ||
-      (targetElement && cell.type === types.target && !isSamePosition(cell, targetElement))) {
+    if ((start && cell.type === types.start && !isSamePosition(cell, start)) ||
+      (target && cell.type === types.target && !isSamePosition(cell, target))) {
       this.props.placeElement(types.simple, {
         x: cell.x,
         y: cell.y,
