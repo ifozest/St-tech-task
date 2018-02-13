@@ -5,23 +5,23 @@ import { initGrid, buildPath, clearPath } from 'actions/grid';
 
 import { findPath } from 'services/algorithms/aStar';
 
-const mapStateToProps = ({ startElement, targetElement }) => ({
-  startElement,
-  targetElement,
+const mapStateToProps = ({ start, target }) => ({
+  start,
+  target,
 });
 
 
 const findNewPath = () => (dispatch, getState) => {
   const {
-    startElement,
-    targetElement,
+    start,
+    target,
     cells,
     wormEntrances,
     wormExits,
     path,
   } = getState();
   dispatch(clearPath(path));
-  const newPath = findPath(startElement, targetElement, cells, wormEntrances, wormExits);
+  const newPath = findPath(start, target, cells, wormEntrances, wormExits);
   dispatch(buildPath(newPath));
 };
 

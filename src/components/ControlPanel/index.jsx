@@ -4,19 +4,19 @@ import PropTypes from 'prop-types';
 const propTypes = {
   clearGrid: PropTypes.func.isRequired,
   findPath: PropTypes.func.isRequired,
-  startElement: PropTypes.shape({
+  start: PropTypes.shape({
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,
   }),
-  targetElement: PropTypes.shape({
+  target: PropTypes.shape({
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,
   }),
 };
 
 const defaultProps = {
-  startElement: null,
-  targetElement: null,
+  start: null,
+  target: null,
 };
 
 class ControlPanel extends React.Component {
@@ -28,11 +28,11 @@ class ControlPanel extends React.Component {
 
   findPath() {
     const {
-      startElement,
-      targetElement,
+      start,
+      target,
     } = this.props;
 
-    if (startElement && targetElement) {
+    if (start && target) {
       this.props.findPath();
     }
   }

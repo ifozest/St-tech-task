@@ -4,10 +4,10 @@ import Cell from 'components/Cell';
 import { markCell } from 'actions/grid';
 
 
-const mapStateToProps = ({ selectedElement, startElement, targetElement }) => ({
+const mapStateToProps = ({ selectedElement, start, target }) => ({
   selectedElement,
-  startElement,
-  targetElement,
+  start,
+  target,
 });
 
 const mapDispatchToProps = dispatch => ({
