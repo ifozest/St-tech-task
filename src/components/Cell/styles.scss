@@ -1,0 +1,45 @@
+.cell {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border: 1px solid #cfcfcf;
+  position: relative;
+  &-path {
+    padding: 8px;
+    background: #6f9c71;
+    background-clip: content-box;
+  }
+  &-start {
+    background: #0000ff;
+  }
+  &-target {
+    background: #ff0000;
+  }
+  &-boulder {
+    background: #000;
+  }
+  &-gravel {
+    background: #ffcc5c;
+  }
+  &-worm-enter {
+    border-radius: 50%;
+    background: #d5ebff;
+  }
+  &-worm-exit {
+    border-radius: 50%;
+    background: #fff8ba;
+  }
+  &.path:after {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    content: "";
+    background: #5c735c;
+    z-index: 1;
+    margin: 6px;
+  }
+}
+

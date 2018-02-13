@@ -1,0 +1,17 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+@import 'components/App/styles';
+@import 'components/Caption/styles';
+@import 'components/Cell/styles';
+@import 'components/Grid/styles';
+@import 'components/ElementPicker/styles';
+@import 'components/ControlPanel/styles';
+@import 'components/Error/styles';
