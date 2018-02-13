@@ -16,7 +16,7 @@ const cellStyleMap = {
 
 const propTypes = {
   placeElement: PropTypes.func.isRequired,
-  selectedElement: PropTypes.string.isRequired,
+  selectedElement: PropTypes.string,
   cell: PropTypes.shape({
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,
@@ -34,6 +34,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  selectedElement: null,
   start: null,
   target: null,
 };
