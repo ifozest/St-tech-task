@@ -12,9 +12,6 @@ const propTypes = {
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,
   }),
-  cells: PropTypes.arrayOf(PropTypes.any).isRequired,
-  wormEntrances: PropTypes.arrayOf(PropTypes.any).isRequired,
-  wormExits: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
 
 const defaultProps = {
@@ -33,13 +30,10 @@ class ControlPanel extends React.Component {
     const {
       startElement,
       targetElement,
-      cells,
-      wormEntrances,
-      wormExits,
     } = this.props;
 
-    if (this.props.startElement && this.props.targetElement) {
-      this.props.findPath(startElement, targetElement, cells, wormEntrances, wormExits);
+    if (startElement && targetElement) {
+      this.props.findPath();
     }
   }
 

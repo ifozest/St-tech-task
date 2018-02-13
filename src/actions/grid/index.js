@@ -9,6 +9,7 @@ import {
   CELL_MARK_WORM_EXIT,
   GRID_INIT,
   PATH_BUILD,
+  PATH_CLEAR,
   ELEMENT_PICK,
 } from 'utils/constants/redux';
 
@@ -48,5 +49,10 @@ export const initGrid = () => {
 
 export const buildPath = path => ({
   type: PATH_BUILD,
+  path,
+});
+
+export const clearPath = path => ({
+  type: PATH_CLEAR,
   path,
 });
