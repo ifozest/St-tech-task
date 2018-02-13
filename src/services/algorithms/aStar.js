@@ -2,13 +2,30 @@ import { generateKey, isSamePosition, getNeighbors } from 'services/grid';
 import { types } from 'services/element/types';
 import { getWalkCost } from 'services/element';
 
-
+/**
+ * Direct distance cost between two cells
+ * @param start
+ * @param end
+ */
 export const directDistEstimation = (start, end) =>
   Math.abs(end.x - start.x) + Math.abs(end.y - start.y);
 
+/**
+ * Distance cost between cell and closest wormhole
+ * @param node
+ * @param wormholes
+ */
 export const closestWormHoleDistEstimation = (node, wormholes) =>
   Math.min(...wormholes.map(wormhole => directDistEstimation(node, wormhole)));
 
+/**
+ * Distance cost between two cells
+ * @param start
+ * @param end
+ * @param wormEntrances
+ * @param wormExits
+ * @return {number}
+ */
 export const distEstimation = (start, end, wormEntrances, wormExits) => {
   const direct = directDistEstimation(start, end);
   const toWormEntrance = closestWormHoleDistEstimation(start, wormEntrances);

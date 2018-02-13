@@ -13,12 +13,7 @@ import {
   ELEMENT_PICK,
 } from 'utils/constants/redux';
 
-export const pickElement = element => ({
-  type: ELEMENT_PICK,
-  element,
-});
-
-export const getActionType = (elemType) => {
+const getActionType = (elemType) => {
   switch (elemType) {
     case types.start:
       return CELL_MARK_START;
@@ -37,6 +32,11 @@ export const markCell = (elemType, position) => ({
   type: getActionType(elemType),
   elemType,
   position,
+});
+
+export const pickElement = element => ({
+  type: ELEMENT_PICK,
+  element,
 });
 
 export const initGrid = () => {
