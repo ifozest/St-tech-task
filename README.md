@@ -17,5 +17,5 @@ npm start
 ```
 ## Tests
 ```
-npm run tests
+npm run test
 ```
