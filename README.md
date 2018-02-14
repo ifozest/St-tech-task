@@ -1,5 +1,7 @@
 # St-tech-task
 
+Result on gh-pages https://ifozest.github.io/St-tech-task/dist/
+
 ## Setup
 install dependencies
 ```
